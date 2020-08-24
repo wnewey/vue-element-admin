@@ -1,0 +1,29 @@
+{
+  "name": "vue-element-admin",
+  "version": "1.0.0",
+  "description": "vue-element-admin",
+  "author": "wnewey <newey@vip.qq.com>",
+  "private": true,
+  "scripts": {
+    "dev": "vuepress dev",
+    "build": "vuepress build"
+  },
+  "dependencies": {
+    "vuepress": "^1.5.3",
+    "core-js": "^3.6.5",
+    "element-ui": "^2.13.2"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">= 6.0.0",
+    "npm": ">= 3.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
+  "license": "ISC",
+  "main": "index.js",
+  "keywords": []
+}

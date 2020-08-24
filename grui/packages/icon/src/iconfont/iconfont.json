@@ -1,0 +1,219 @@
+{
+  "id": "1582310",
+  "name": "服务网站",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "15214319",
+      "name": "修改登录密码",
+      "font_class": "zu22",
+      "unicode": "e61c",
+      "unicode_decimal": 58908
+    },
+    {
+      "icon_id": "15214320",
+      "name": "修改绑定邮箱",
+      "font_class": "zu2",
+      "unicode": "e61d",
+      "unicode_decimal": 58909
+    },
+    {
+      "icon_id": "15214321",
+      "name": "修改绑定手机",
+      "font_class": "zu21",
+      "unicode": "e61e",
+      "unicode_decimal": 58910
+    },
+    {
+      "icon_id": "15213795",
+      "name": "加油轨迹查询",
+      "font_class": "zu216",
+      "unicode": "e617",
+      "unicode_decimal": 58903
+    },
+    {
+      "icon_id": "15213796",
+      "name": "商城账号设置",
+      "font_class": "zu214",
+      "unicode": "e618",
+      "unicode_decimal": 58904
+    },
+    {
+      "icon_id": "15213797",
+      "name": "充值明细查询",
+      "font_class": "zu213",
+      "unicode": "e619",
+      "unicode_decimal": 58905
+    },
+    {
+      "icon_id": "15213798",
+      "name": "余额不足提醒",
+      "font_class": "zu215",
+      "unicode": "e61a",
+      "unicode_decimal": 58906
+    },
+    {
+      "icon_id": "15213799",
+      "name": "限制信息",
+      "font_class": "zu212",
+      "unicode": "e61b",
+      "unicode_decimal": 58907
+    },
+    {
+      "icon_id": "12519160",
+      "name": "关闭",
+      "font_class": "close",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "12519161",
+      "name": "交易查询",
+      "font_class": "check-bill",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "12519162",
+      "name": "账单查询",
+      "font_class": "check-account",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "12519163",
+      "name": "安全设置",
+      "font_class": "sercurity",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "12519164",
+      "name": "添加",
+      "font_class": "add",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "12519165",
+      "name": "删除",
+      "font_class": "del",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "12519166",
+      "name": "加油卡挂失",
+      "font_class": "card-lost",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "12519168",
+      "name": "角色分配",
+      "font_class": "role",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
+      "icon_id": "12519169",
+      "name": "企业贷款",
+      "font_class": "loan",
+      "unicode": "e609",
+      "unicode_decimal": 58889
+    },
+    {
+      "icon_id": "12519170",
+      "name": "积分兑换",
+      "font_class": "redeem",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "12519171",
+      "name": "主账户信息",
+      "font_class": "account-info",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    },
+    {
+      "icon_id": "12519631",
+      "name": "加油卡注销",
+      "font_class": "card-cancel",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    },
+    {
+      "icon_id": "12519633",
+      "name": "申请开卡",
+      "font_class": "apply-card",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    },
+    {
+      "icon_id": "12519634",
+      "name": "加油卡信息",
+      "font_class": "card-info",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    },
+    {
+      "icon_id": "12519720",
+      "name": "余额分配",
+      "font_class": "balance",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    },
+    {
+      "icon_id": "12520152",
+      "name": "账户",
+      "font_class": "account",
+      "unicode": "e612",
+      "unicode_decimal": 58898
+    },
+    {
+      "icon_id": "12520153",
+      "name": "加油卡",
+      "font_class": "gas-card",
+      "unicode": "e613",
+      "unicode_decimal": 58899
+    },
+    {
+      "icon_id": "12520154",
+      "name": "增值服务",
+      "font_class": "value-added-service",
+      "unicode": "e614",
+      "unicode_decimal": 58900
+    },
+    {
+      "icon_id": "12520155",
+      "name": "设置",
+      "font_class": "setting",
+      "unicode": "e615",
+      "unicode_decimal": 58901
+    },
+    {
+      "icon_id": "12520156",
+      "name": "首页",
+      "font_class": "home",
+      "unicode": "e616",
+      "unicode_decimal": 58902
+    },
+    {
+      "icon_id": "12520157",
+      "name": "在线客服",
+      "font_class": "service",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "12520526",
+      "name": "退出",
+      "font_class": "logout",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    }
+  ]
+}

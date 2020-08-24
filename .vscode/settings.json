@@ -1,0 +1,49 @@
+{
+    "files.associations": {
+        "*.vue": "vue"
+    },
+    "beautify.language": {
+        "js": {
+            "type": [
+                "javascript",
+                "json",
+                "jsonc"
+            ],
+            "filename": [
+                ".jshintrc",
+                ".jsbeautifyrc"
+            ]
+        },
+        "css": [
+            "css",
+            "less",
+            "scss"
+        ],
+        "html": [
+            "vue",
+            "htm",
+            "html"
+        ]
+    },
+    "editor.tabSize": 2,
+    // jshint
+    "jshint.options": {
+        "esversion": 6
+    },
+    "eslint.validate": [
+        "vue",
+        "js",
+        "html"
+    ],
+    "editor.codeActionsOnSave": {
+        "source.fixAll": true,
+        "source.fixAll.eslint": true,
+        "source.organizeImports": true
+    },
+    "[vue]": {
+        "editor.defaultFormatter": "HookyQR.beautify"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+}
