@@ -5,19 +5,49 @@ import Router from 'vue-router'; // 获取组件的方法
 const _import = require('@src/router/_import_' + process.env.NODE_ENV);
 // var pathPre = config.pathPre;
 
-// const routerPush = Router.prototype.push;
-// Router.prototype.push = function push(location) {
-//   if (typeof location === 'string') {
-//     location = pathPre + location;
-//   } else if (location.url) {
-//     location.url = pathPre + location.url;
-//   }
-//   return routerPush.call(this, location).catch(error => error);
-// };
+const routerPush = Router.prototype.push;
+Router.prototype.push = function push(location) {
+  //   if (typeof location === 'string') {
+  //     location = pathPre + location;
+  //   } else if (location.url) {
+  //     location.url = pathPre + location.url;
+  //   }
+  return routerPush.call(this, location).catch(error => error);
+};
 
 Vue.use(Router);
 
+var initRoutes = [{
+  path: '/login',
+  component: _import('login'),
+  name: 'login',
+  meta: {
+    title: 'NotFound',
+    noCache: true,
+    noTag: true
+  },
+  hidden: true
+}, {
+  path: '*',
+  component: Layout,
+  meta: {
+    affix: true,
+    icon: 'el-icon-s-home',
+    title: '首页'
+  }
+}];
+
 var affixRoutes = [{
+  path: '/login',
+  component: _import('login'),
+  name: 'login',
+  meta: {
+    title: 'NotFound',
+    noCache: true,
+    noTag: true
+  },
+  hidden: true
+}, {
   path: '/',
   component: Layout,
   meta: {
@@ -73,17 +103,17 @@ var appendRoutes = [
   }
 ];
 
-const createRouter = () => new Router({
+const createRouter = (routes) => new Router({
   // mode: 'history', // require service support
   scrollBehavior: () => ({ y: 0 }),
-  routes: affixRoutes
+  routes: routes
 });
 
-const router = createRouter();
+const router = createRouter(initRoutes);
 
 // Detail see: https://github.com/vuejs/vue-router/issues/1234#issuecomment-357941465
-export function resetRouter() {
-  const newRouter = createRouter();
+export function resetRouter(routes) {
+  const newRouter = createRouter(routes);
   router.matcher = newRouter.matcher; // reset router
 }
 

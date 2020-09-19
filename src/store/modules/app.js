@@ -5,7 +5,8 @@ const state = {
     withoutAnimation: false
   },
   device: 'desktop',
-  size: localStorage.getItem('size') || 'medium'
+  size: localStorage.getItem('size') || 'medium',
+  layoutLoading: true
 };
 
 const mutations = {
@@ -29,6 +30,9 @@ const mutations = {
   SET_SIZE: (state, size) => {
     state.size = size;
     localStorage.setItem('size', size);
+  },
+  SET_LAYOUT_LOADING: (state, loading) => {
+    state.layoutLoading = loading;
   }
 };
 
@@ -44,6 +48,9 @@ const actions = {
   },
   setSize({ commit }, size) {
     commit('SET_SIZE', size);
+  },
+  setLayoutLoadig({ commit }, loading) {
+    commit('SET_LAYOUT_LOADING', loading);
   }
 };
 

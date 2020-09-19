@@ -1,5 +1,5 @@
 <template>
-  <div id="app" v-loading="permission_routes.length==0" style="min-height:100vh">
+  <div id="app" v-loading="$store.state.app.layoutLoading" style="height:100vh">
     <router-view></router-view>
   </div>
 </template>
@@ -9,41 +9,16 @@
     banBackSpace
   } from '@src/extends/utils/preventBackspace';
 
-  import {
-    mapGetters
-  } from 'vuex';
-
-  import {
-    getRoutes
-  } from '@api/role';
-
-  // import menus from '../mock/role/routes';
-
   export default {
     name: 'Entry',
-    computed: {
-      ...mapGetters([
-        'permission_routes'
-      ])
-    },
-    methods: {
-      loadingInitInfo() {
-        // 清空原有路由表
-        // 加载用户和菜单信息
-        getRoutes().then((menus) => {
-          setTimeout(() => {
-            this.$store.dispatch('permission/generateRoutes', menus).then((accessRoutes) => {
-              this.$router.addRoutes(accessRoutes);
-              this.$store.dispatch('tagsView/delAllViews', {
-                root: true
-              });
-            });
-          }, 2000);
-        });
-      }
-    },
+    methods: {},
     mounted() {
+      console.log('init');
       document.onkeypress = banBackSpace;
+      // watermark({
+      //   watermark_txt: '你要添加的水印'
+      // });
+
       // var token = localStorage.getItemItem('token');
       // var accountNo = localStorage.getItemItem('accountNo');
       // if (!token) {
@@ -57,8 +32,6 @@
       window.onresize = () => {
         this.$root.eventHub.$emit('windowResize', '');
       };
-      //  加载菜单
-      this.loadingInitInfo();
       // this.$store.commit('updateMenus', menus || []);
     }
   };
@@ -67,11 +40,5 @@
 
 <style lang="less">
   @import "./static/style/main.less";
-
-  .el-tooltip__popper.is-dark {
-    background: #FFF;
-    color: #303133;
-    border: 1px solid #303133;
-  }
 
 </style>

@@ -16,10 +16,12 @@ export function filterAsyncRoutes(routes) {
     if (tmp.children) {
       tmp.children = filterAsyncRoutes(tmp.children);
     }
-    if (tmp.component === 'layout') {
-      tmp.component = Layout;
-    } else {
-      tmp.component = genComponent(tmp.component);
+    if (typeof tmp.component === 'string') {
+      if (tmp.component === 'layout') {
+        tmp.component = Layout;
+      } else {
+        tmp.component = genComponent(tmp.component);
+      }
     }
 
     res.push(tmp);
@@ -47,16 +49,15 @@ const state = {
 const mutations = {
   SET_ROUTES: (state, routes) => {
     state.addRoutes = routes;
-    state.routes = AFFIX_ROUTES.concat(routes);
+    state.routes = AFFIX_ROUTES.concat(routes).concat(APPEND_ROUTES);
   }
 };
 
 const actions = {
   generateRoutes({ commit }, routes) {
     return new Promise(resolve => {
-      let accessedRoutes = filterAsyncRoutes(routes);
-      accessedRoutes = accessedRoutes.concat(APPEND_ROUTES);
-      commit('SET_ROUTES', accessedRoutes);
+      let accessedRoutes = filterAsyncRoutes(AFFIX_ROUTES.concat(routes).concat(APPEND_ROUTES));
+      commit('SET_ROUTES', routes);
       genRouteApis(accessedRoutes);
       resolve(accessedRoutes);
     });
