@@ -1,4 +1,5 @@
 @import "../../static/style/variables.less";
+@import "../../../grui/theme/color.less";
 
 #app {
   .main-container {
@@ -11,7 +12,7 @@
   .sidebar-container {
     transition: width 0.28s;
     width: @sideBarWidth  !important;
-    background-color: @menuBg;
+    // background-color: @menuBg;
     height: 100%;
     position: fixed;
     font-size: 0px;
@@ -67,27 +68,60 @@
       border: none;
       height: 100%;
       width: 100% !important;
+      // background-color: @menuBg;
+    }
+
+    .el-submenu {
+      // background-color: @subMenuBg ;
+
+      .el-submenu__title {
+        color: #fff;
+
+        i {
+          color: #fff;
+        }
+
+        &:hover {
+          background-color: @subMenuHover  !important;
+          color: #fff;
+        }
+      }
+
     }
 
     // menu hover
     .submenu-title-noDropdown,
     .el-submenu__title {
+      // background-color: @menuBg;
+      color:#fff;
+
       &:hover {
         background-color: @menuHover  !important;
+        color: #fff;
       }
     }
 
     .is-active>.el-submenu__title {
       color: @subMenuActiveText  !important;
+
+      i {
+        color: @subMenuActiveText  !important;
+      }
     }
 
     & .nest-menu .el-submenu>.el-submenu__title,
     & .el-submenu .el-menu-item {
       min-width: @sideBarWidth  !important;
-      background-color: @subMenuBg  !important;
+      // background-color: @subMenuBg  !important;
+      color: @menuText;
 
       &:hover {
         background-color: @subMenuHover  !important;
+        color: #fff;
+      }
+
+      &.is-active {
+        color: @subMenuActiveText  !important;
       }
     }
   }
@@ -204,6 +238,7 @@
     &:hover {
       // you can use @subMenuHover
       background-color: @menuHover  !important;
+      color: #fff;
     }
   }
 
@@ -214,6 +249,7 @@
 
     &::-webkit-scrollbar-track-piece {
       background: #d3dce6;
+      // color: #fff;
     }
 
     &::-webkit-scrollbar {

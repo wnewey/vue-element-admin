@@ -1,4 +1,6 @@
 
+var initTheme = localStorage.getItem('THEME') || '#EC7C31';
+
 const state = {
   sidebar: {
     opened: localStorage.getItem('sidebarStatus') ? !!+localStorage.getItem('sidebarStatus') : true,
@@ -6,7 +8,8 @@ const state = {
   },
   device: 'desktop',
   size: localStorage.getItem('size') || 'medium',
-  layoutLoading: true
+  layoutLoading: true,
+  theme: initTheme
 };
 
 const mutations = {
@@ -33,6 +36,10 @@ const mutations = {
   },
   SET_LAYOUT_LOADING: (state, loading) => {
     state.layoutLoading = loading;
+  },
+  SET_THEME: (state, theme) => {
+    state.theme = theme || initTheme;
+    localStorage.setItem('THEME', state.theme);
   }
 };
 
@@ -51,6 +58,9 @@ const actions = {
   },
   setLayoutLoadig({ commit }, loading) {
     commit('SET_LAYOUT_LOADING', loading);
+  },
+  setTheme({ commit }, theme) {
+    commit('SET_THEME', theme);
   }
 };
 

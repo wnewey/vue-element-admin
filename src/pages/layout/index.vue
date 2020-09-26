@@ -84,7 +84,6 @@
 </script>
 
 <style lang="less">
-  @import "../../static/style/variables.less";
   @import "./layout.less";
 
   .app-wrapper {

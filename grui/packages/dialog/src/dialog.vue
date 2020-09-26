@@ -108,8 +108,8 @@
     text-align: center
   }
 
-  /deep/ p {
-    text-indent: 2em
-  }
+  // /deep/ p {
+  //   text-indent: 2em
+  // }
 
 </style>

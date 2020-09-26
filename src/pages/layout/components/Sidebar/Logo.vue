@@ -1,5 +1,6 @@
 <template>
-  <div class="sidebar-logo-container" :class="{'collapse':collapse}">
+  <div class="sidebar-logo-container" :class="{'collapse':collapse}"
+    :style="{'background-color':$store.state.app.theme}">
     <transition name="sidebarLogoFade">
       <router-link v-if="collapse" key="collapse" class="sidebar-logo-link" :class="{'collapse':collapse}" to="/">
         <img v-if="logo" :src="logo" class="sidebar-logo">
@@ -34,6 +35,8 @@
 </script>
 
 <style lang="less" scoped>
+  @import "../../../../../grui/theme/color.less";
+
   .sidebarLogoFade-enter-active {
     transition: opacity 1.5s;
   }
@@ -48,7 +51,7 @@
     width: 100%;
     height: 85px;
     line-height: 85px;
-    background: #2b2f3a;
+    // background: @menuBg;
     text-align: center;
     overflow: hidden;
 

@@ -7,7 +7,8 @@
           <el-table-column v-if="!column.hidden" :key="index" :type="column.type" :label="column.label"
             :width="column.width" :prop="column.key" :sortable="column.sortable" :formatter="column.formatter"
             show-overflow-tooltip>
-            <el-dropdown v-if="index==1" slot="header" trigger="click" :hide-on-click="false" placement="bottom-start">
+            <el-dropdown v-if="index==1 && showColumnsSelect" slot="header" trigger="click" :hide-on-click="false"
+              placement="bottom-start">
               <span class="col-select">{{column.label}} <i class="el-icon-caret-right "></i></span>
               <el-dropdown-menu slot="dropdown">
                 <div class="drop-col-div">
@@ -28,7 +29,8 @@
       <slot name="footer"></slot>
       <div v-if="pagination && !$slots.footer" style="height:30px">&nbsp;&nbsp;</div>
       <div class="table-pagination" v-if="pagination">
-        <gr-pagination :current="current" :total="total" :page-size="pageSize" @currentChange="currentChange">
+        <gr-pagination :componts="paginationComponts" :current="current" :total="total" :page-size="pageSize"
+          @currentChange="currentChange">
         </gr-pagination>
       </div>
     </div>
@@ -65,6 +67,10 @@
         type: Boolean,
         default: true
       },
+      showColumnsSelect: {
+        type: Boolean,
+        default: false
+      },
       tooltipEffect: {
         type: String,
         default: 'dark'
@@ -86,7 +92,8 @@
       pagination: Boolean,
       current: Number,
       total: Number,
-      pageSize: Number
+      pageSize: Number,
+      paginationComponts: String
     },
     data() {
       return {

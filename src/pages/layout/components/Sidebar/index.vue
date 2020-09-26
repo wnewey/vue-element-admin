@@ -1,10 +1,9 @@
 <template>
   <div class="has-logo">
     <logo :collapse="isCollapse" />
-    <el-scrollbar wrap-class="scrollbar-wrapper">
-      <el-menu :default-active="activeMenu" :collapse="isCollapse" :background-color="variables.menuBg"
-        :text-color="variables.menuText" unique-opened :active-text-color="variables.menuActiveText"
-        :collapse-transition="false" mode="vertical">
+    <el-scrollbar wrap-class="scrollbar-wrapper" :style="{'background-color':$store.state.app.theme}">
+      <el-menu :default-active="activeMenu" :collapse="isCollapse" unique-opened :collapse-transition="false"
+        mode="vertical" :background-color="$store.state.app.theme">
         <sidebar-item v-for="route in permission_routes" :key="route.path" :item="route" :base-path="route.path" />
       </el-menu>
     </el-scrollbar>
@@ -24,11 +23,6 @@
     },
     data() {
       return {
-        variables: {
-          menuBg: '#304156',
-          menuText: '#bfcbd9',
-          menuActiveText: '#d28a4b'
-        },
         routes: []
       };
     },

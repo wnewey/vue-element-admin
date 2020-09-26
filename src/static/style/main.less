@@ -8,7 +8,7 @@ body {
   font-size: 14px;
   font-weight: 400;
   line-height: 1.5;
-  min-width: 1000px;
+  min-width: 1200px;
   overflow-x: scroll;
 }
 
@@ -67,4 +67,25 @@ a {
     font-size: 16px;
     font-weight: 500;
   }
+}
+
+.el-popup-parent--hidden{
+  padding-left: 0 !important;
+}
+
+.el-tooltip__popper {
+  background: #FFF;
+  color: #303133;
+}
+
+.el-tooltip__popper[x-placement^=top].is-dark {
+  background: #FFF;
+  color: #303133;
+  max-width: 150px;
+  line-height: 1.5;
+  border: 1px solid @primaryColor ;
+}
+
+.el-tooltip__popper[x-placement^=top] .popper__arrow::after {
+  border-top-color: @primaryColor ;
 }

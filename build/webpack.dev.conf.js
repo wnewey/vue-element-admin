@@ -7,10 +7,11 @@ const path = require('path');
 const os = require('os');
 
 const baseWebpackConfig = require('./webpack.base.conf');
-// const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 const portfinder = require('portfinder');
+// const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const HOST = process.env.HOST;
 const PORT = process.env.PORT && Number(process.env.PORT);
@@ -50,6 +51,7 @@ const devWebpackConfig = webpackMerge(baseWebpackConfig, {
     new webpack.DefinePlugin({
       'process.env': require('../config/dev.env')
     }),
+    // new ExtractTextPlugin('style.[contenthash].css'),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(), // HMR shows correct file names in console on update.
     new webpack.NoEmitOnErrorsPlugin(),
@@ -58,15 +60,15 @@ const devWebpackConfig = webpackMerge(baseWebpackConfig, {
       filename: 'index.html',
       template: 'src/entry.html',
       inject: true
-    })
+    }),
     // copy custom static assets
-    // new CopyWebpackPlugin([
-    //   {
-    //     from: path.resolve(__dirname, '../static'),
-    //     to: config.dev.assetsSubDirectory,
-    //     ignore: ['.*']
-    //   }
-    // ])
+    new CopyWebpackPlugin([
+      {
+        from: path.resolve(__dirname, '../element-ui-theme/index.css'),
+        to: config.dev.assetsSubDirectory,
+        ignore: ['.*']
+      }
+    ])
   ]
 });
 

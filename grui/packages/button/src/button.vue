@@ -26,12 +26,21 @@
     },
     computed: {
       finalPlain() {
-        if (this.type !== 'primary') {
+        if (this.plain) {
+          return this.plain;
+        }
+        if (this.primary) {
           return false;
         }
-        return this.plain;
+        if (this.type !== 'primary' && this.type !== 'text') {
+          return true;
+        }
+        return false;
       },
       finalType() {
+        if (this.type === 'danger' || this.type === 'warning') {
+          return 'primary';
+        }
         return this.type ? this.type : (this.primary ? 'primary' : 'default');
       },
       buttonClass() {
