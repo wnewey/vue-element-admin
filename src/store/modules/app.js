@@ -1,5 +1,5 @@
 
-var initTheme = localStorage.getItem('THEME') || '#EC7C31';
+var initTheme = localStorage.getItem('THEME') || '#DF863C';
 
 const state = {
   sidebar: {

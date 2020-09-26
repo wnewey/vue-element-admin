@@ -6,13 +6,13 @@
 
 <script>
   // const version = require('element-ui/package.json').version; // element-ui version from node_modules
-  const ORIGINAL_THEME = '#EC7c31'; // default color
+  const ORIGINAL_THEME = '#DF863C'; // default color
 
   export default {
     data() {
       return {
         chalk: '', // content of theme-chalk css
-        theme: '#EC7c31' // '#EC7c31'
+        theme: '#DF863C' // '#DF863C'
       };
     },
     mounted() {
