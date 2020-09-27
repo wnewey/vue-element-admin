@@ -1,8 +1,8 @@
 <template>
   <div class="navbar">
     <div>
-      <hamburger id="hamburger-container" :is-active="sidebar.opened" class="hamburger-container"
-        @toggleClick="toggleSideBar" />
+      <!-- <hamburger id="hamburger-container" :is-active="sidebar.opened" class="hamburger-container"
+        @toggleClick="toggleSideBar" /> -->
       <!-- <breadcrumb id="breadcrumb-container" class="breadcrumb-container" /> -->
       <div class="title">电子风险运营管理系统</div>
     </div>
@@ -47,7 +47,7 @@
     mapGetters
   } from 'vuex';
   // import Breadcrumb from '../components/Breadcrumb';
-  import Hamburger from '../components/Hamburger';
+  // import Hamburger from '../components/Hamburger';
   import ChangeTheme from '../components/changeTheme';
 
   export default {
@@ -63,7 +63,7 @@
     },
     components: {
       // Breadcrumb,
-      Hamburger,
+      // Hamburger,
       ChangeTheme
     },
     computed: {
@@ -103,6 +103,7 @@
       font-size: 18px;
       color: #333;
       float: left;
+      padding-left: 15px;
     }
 
     .hamburger-container {

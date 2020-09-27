@@ -1,5 +1,7 @@
 <template>
   <div class="has-logo">
+    <hamburger :is-active="sidebar.opened" class="hamburger-container" :class="{collapse:isCollapse}"
+      @toggleClick="toggleSideBar" />
     <logo :collapse="isCollapse" />
     <el-scrollbar wrap-class="scrollbar-wrapper" :style="{'background-color':$store.state.app.theme}">
       <el-menu :default-active="activeMenu" :collapse="isCollapse" unique-opened :collapse-transition="false"
@@ -16,10 +18,13 @@
   } from 'vuex';
   import Logo from './Logo';
   import SidebarItem from './SidebarItem';
+  import Hamburger from '../Hamburger';
+
   export default {
     components: {
       SidebarItem,
-      Logo
+      Logo,
+      Hamburger
     },
     data() {
       return {
@@ -47,7 +52,29 @@
         return !this.sidebar.opened;
       }
     },
+    methods: {
+      toggleSideBar() {
+        this.$store.dispatch('app/toggleSideBar');
+      }
+    },
     mounted() {}
   };
 
 </script>
+
+<style lang="less" scoped>
+  .has-logo {
+    position: relative;
+
+    .hamburger-container {
+      position: absolute;
+      z-index: 10;
+      cursor: pointer;
+
+      &.collapse {
+        left: 16px;
+      }
+    }
+  }
+
+</style>

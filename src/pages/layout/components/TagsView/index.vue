@@ -246,9 +246,9 @@
         }
 
         &.active {
-          background-color: @primaryColor;
+          background-color: @activeColor;
           color: #fff;
-          border-color: @primaryColor;
+          border-color: @activeColor;
 
           &::before {
             content: '';

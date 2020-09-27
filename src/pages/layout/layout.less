@@ -75,15 +75,15 @@
       // background-color: @subMenuBg ;
 
       .el-submenu__title {
-        color: #fff;
+        color: @menuText;
 
         i {
-          color: #fff;
+          color: @menuText;
         }
 
         &:hover {
           background-color: @subMenuHover  !important;
-          color: #fff;
+          color: @menuHover;
         }
       }
 
@@ -93,11 +93,11 @@
     .submenu-title-noDropdown,
     .el-submenu__title {
       // background-color: @menuBg;
-      color:#fff;
+      color: @menuText;
 
       &:hover {
         background-color: @menuHover  !important;
-        color: #fff;
+        color: @menuHover;
       }
     }
 
@@ -235,10 +235,16 @@
 
   .nest-menu .el-submenu>.el-submenu__title,
   .el-menu-item {
+    color: @menuText;
+
     &:hover {
       // you can use @subMenuHover
       background-color: @menuHover  !important;
-      color: #fff;
+      color: @subMenuActiveText;
+    }
+
+    &.is-active {
+      color: @subMenuActiveText;
     }
   }
 
@@ -246,19 +252,39 @@
   >.el-menu--popup {
     max-height: 100vh;
     overflow-y: auto;
+    // background: #fff !important;
 
-    &::-webkit-scrollbar-track-piece {
-      background: #d3dce6;
-      // color: #fff;
-    }
+    // &::-webkit-scrollbar-track-piece {
+    //   background: #d3dce6;
+    //   // color: #fff;
+    // }
 
-    &::-webkit-scrollbar {
-      width: 6px;
-    }
+    // &::-webkit-scrollbar {
+    //   width: 6px;
+    // }
 
-    &::-webkit-scrollbar-thumb {
-      background: #99a9bf;
-      border-radius: 20px;
+    // &::-webkit-scrollbar-thumb {
+    //   background: #99a9bf;
+    //   border-radius: 20px;
+    // }
+
+    .el-menu-item {
+      color: @menuText  !important;
+      // background: #fff !important;
+
+      &:hover {
+        background: @menuHover  !important;
+        color: @subMenuActiveText  !important;
+      }
+
+      &.is-active {
+        color: @subMenuActiveText  !important;
+
+        &:hover {
+          background: @menuHover  !important;
+          color: @subMenuActiveText  !important;
+        }
+      }
     }
   }
 }
