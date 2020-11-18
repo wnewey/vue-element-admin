@@ -1,27 +1,33 @@
 <template>
   <div class="pagination">
-    <div>共{{total}}条</div>
-    <div class="pad-left">
+    <div v-if="!layouts || layouts.includes('total')">共{{total}}条</div>
+    <div class="pad-left" v-if="!layouts || layouts.includes('pagesize')">
       <label>每页</label>
       <gr-select v-model="inputPageSize" @change="pageSizeChange" :options="pageSizeList" style="width:66px">
       </gr-select>
       <label>条</label>
     </div>
-    <gr-button class="pad-left" size="mini" :disabled="currentNumber==1" @click="pageChange(1)">首页</gr-button>
-    <gr-button size="mini" :disabled="currentNumber==1" @click="pageChange(currentNumber-1)">
+    <gr-button v-if="!layouts || layouts.includes('index')" class="pad-left" size="mini" :disabled="currentNumber==1"
+      @click="pageChange(1)">首页</gr-button>
+    <gr-button v-if="!layouts || layouts.includes('prev')" size="mini" :disabled="currentNumber==1"
+      @click="pageChange(currentNumber-1)">
       <i class="el-icon-caret-left"></i>
     </gr-button>
-    <div class="pad-left">{{totalPage ==0 ? 0: currentNumber}}/{{totalPage}}</div>
-    <gr-button class="pad-left" size="mini" :disabled="currentNumber==totalPage||totalPage<1"
-      @click="pageChange(currentNumber+1)">
+    <div class="pad-left" v-if="!layouts || layouts.includes('indicator')">
+      {{totalPage ==0 ? 0: currentNumber}}/{{totalPage}}
+    </div>
+    <gr-button class="pad-left" v-if="!layouts || layouts.includes('next')" size="mini"
+      :disabled="currentNumber==totalPage||totalPage<1" @click="pageChange(currentNumber+1)">
       <i class="el-icon-caret-right"></i>
     </gr-button>
-    <gr-button size="mini" :disabled="currentNumber==totalPage||totalPage<1" @click="pageChange(totalPage)">末页
+    <gr-button size="mini" v-if="!layouts || layouts.includes('end')" :disabled="currentNumber==totalPage||totalPage<1"
+      @click="pageChange(totalPage)">末页
     </gr-button>
-    <gr-input type="number" size="mini" class="pad-left" v-model="inputNumber" style="width:46px" :clearable="false">
+    <gr-input v-if="!layouts || layouts.includes('jumper')" type="number" size="mini" class="pad-left"
+      v-model="inputNumber" style="width:46px" :clearable="false">
     </gr-input>
-    <gr-button class="pad-left" size="mini" @click="pageChange(inputNumber)"
-      :disabled="!(inputNumber&&inputNumber>=1&&inputNumber<=totalPage)">跳转
+    <gr-button v-if="!layouts || layouts.includes('jumper')" class="pad-left" size="mini"
+      @click="pageChange(inputNumber)" :disabled="!(inputNumber&&inputNumber>=1&&inputNumber<=totalPage)">跳转
     </gr-button>
   </div>
 </template>
@@ -47,7 +53,8 @@
       pageSize: {
         type: Number,
         default: 10
-      }
+      },
+      componts: String
     },
     data() {
       return {
@@ -57,6 +64,21 @@
       };
     },
     computed: {
+      layouts() {
+        if (this.componts) {
+          var layouts = this.componts.split(',');
+          var finalLayouts = [];
+          for (var i in layouts) {
+            if (layouts[i].trim().length > 0) {
+              finalLayouts.push(layouts[i].trim());
+            }
+          }
+          if (finalLayouts.length > 0) {
+            return finalLayouts;
+          }
+        }
+        return '';
+      },
       pageSizeList() {
         var initNumbers = [10, 20, 50];
         var inputSize = this.finalPageSize;

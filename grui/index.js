@@ -27,8 +27,10 @@ import Loading from './packages/loading/index.js';
 import MenuItem from './packages/menu-item/index.js';
 import Menu from './packages/menu/index.js';
 import Msg from './packages/msg/index.js';
+// import Overlay from './packages/overlay/index.js';
 import Pagination from './packages/pagination/index.js';
 import Popover from './packages/popover/index.js';
+import QueryFormPanel from './packages/query-form-panel/index.js';
 import RadioButtonGroup from './packages/radio-button-group/index.js';
 import RadioGroup from './packages/radio-group/index.js';
 import Radio from './packages/radio/index.js';
@@ -76,8 +78,10 @@ const components = [
   LinkButton,
   Menu,
   MenuItem,
+  // Overlay,
   Pagination,
   Popover,
+  QueryFormPanel,
   Radio,
   RadioButtonGroup,
   RadioGroup,
@@ -146,8 +150,10 @@ export default {
   LinkButton,
   Menu,
   MenuItem,
+  // Overlay,
   Pagination,
   Popover,
+  QueryFormPanel,
   Radio,
   RadioButtonGroup,
   RadioGroup,

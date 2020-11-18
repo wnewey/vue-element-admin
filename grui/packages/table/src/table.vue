@@ -131,7 +131,7 @@
           if (!container) {
             return;
           }
-          var containerHeight = window.innerHeight - container.$el.offsetTop - 95;
+          var containerHeight = window.innerHeight - container.$el.getBoundingClientRect().top - 110;
 
           if (containerHeight === 0) {
             return;
@@ -139,10 +139,12 @@
 
           var tableHeader = this.parent.$refs.tableHeader;
           if (tableHeader) {
-            containerHeight = window.innerHeight - tableHeader.$el.offsetTop - 120;
+            containerHeight = window.innerHeight - tableHeader.$el.getBoundingClientRect().top - 120;
           }
 
-          this.tableContainerHeight = containerHeight; // - tableTop - footerHeight;
+          // containerHeight -= this.$refs.footer.clientHeight;
+
+          this.tableContainerHeight = containerHeight;
           // 设置最小高度，防止看不到内容
           if (this.tableContainerHeight < 100) {
             this.tableContainerHeight = 100;
