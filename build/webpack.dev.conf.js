@@ -49,7 +49,8 @@ const devWebpackConfig = webpackMerge(baseWebpackConfig, {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env': require('../config/dev.env')
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+      'process.env.CONFIG_ENV': JSON.stringify(process.env.CONFIG_ENV)
     }),
     // new ExtractTextPlugin('style.[contenthash].css'),
     new webpack.HotModuleReplacementPlugin(),

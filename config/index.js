@@ -4,9 +4,31 @@
 
 const path = require('path');
 
+var buildCmd = process.env.npm_lifecycle_event;
+var buildEnv = 'development';
+var configEnv = 'development';
+switch (buildCmd) {
+  case 'build:sit':
+    buildEnv = 'production';
+    configEnv = 'sit';
+    break;
+  case 'build:uat':
+    buildEnv = 'production';
+    configEnv = 'sit';
+    break;
+  case 'build:prod':
+  case 'build:report':
+    buildEnv = 'production';
+    configEnv = 'prod';
+    break;
+}
+process.env.NODE_ENV = buildEnv;
+process.env.CONFIG_ENV = configEnv;
+
 module.exports = {
+  configEnv: configEnv,
   dev: {
-    // Paths
+    // PconfigEnvaths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {},
@@ -44,10 +66,10 @@ module.exports = {
 
   build: {
     // Template for index.html
-    index: path.resolve(__dirname, '../dist/index.html'),
+    index: path.resolve(__dirname, `../dist/${configEnv}/index.html`),
 
     // Paths
-    assetsRoot: path.resolve(__dirname, '../dist/'),
+    assetsRoot: path.resolve(__dirname, `../dist/${configEnv}/`),
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
 
@@ -68,7 +90,7 @@ module.exports = {
 
     // Run the build command with an extra argument to
     // View the bundle analyzer report after build finishes:
-    // `npm run build --report`
+    // `npm run build--report`
     // Set to `true` or `false` to always turn it on or off
     bundleAnalyzerReport: process.env.npm_config_report
   }
